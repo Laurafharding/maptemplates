@@ -1392,7 +1392,7 @@ if (Modernizr.webgl) {
       });
 
     };
-
+    pymChild.sendHeight()
   }
 
 } else {
