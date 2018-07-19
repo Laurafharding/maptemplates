@@ -1,3 +1,21 @@
+Skip to content
+
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ @Laurafharding Sign out
+6
+0 1 ONSvisual/maptemplates
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
+maptemplates/changeovertime/index.html
+748d034  a day ago
+@henryjameslau henryjameslau resizing properly
+@Laurafharding @henryjameslau
+
+1093 lines (923 sloc)  20.2 KB
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,20 +41,16 @@
       margin: 0px auto;
       /* display:block; */
     }
-
     #header {
       height: 70px;
       width: 100%
     }
-
     .mapboxgl-ctrl-group .mapboxgl-ctrl-compass {
       display: none;
     }
-
     #nav {
       width: 100%;
     }
-
     .dropdown {
       width: 98%;
       height: 40px;
@@ -50,46 +64,35 @@
       background-color: #FFF;
       margin-left: 1px;
     }
-
     @media (min-width: 600px) {
       #map {
         height: 500px;
       }
-
       #horiz {
         display: none;
       }
-
       #selectnav {
         display: none;
       }
-
-
       #currVal {
         font-size: 12px;
       }
     }
-
     @media (max-width: 599px) {
-
       body {
         height: 620px;
       }
-
       #nav {
         display: none;
       }
-
       #map {
         height: 500px;
         width: 100%;
         overflow: visible;
       }
-
       #controls {
         display: none;
       }
-
       /*	#selectNav {
 			position:absolute;
 			top:-120px;
@@ -103,30 +106,21 @@
         display: none;
         font-family: 'Open Sans', sans-serif !important;
       }
-
       #chartgroup {
         display: none;
       }
-
       #key text {
         font-weight: 600 !important;
       }
-
       #currVal {
         font-size: 16px;
-
       }
-
       .mapboxgl-ctrl-fullscreen {
         display: none !important;
       }
     }
-
-
     /* Button group styles */
-
     #primary {}
-
     .btn-form {
       display: -webkit-inline-box;
       display: -ms-inline-flexbox;
@@ -137,7 +131,6 @@
       font-size: 16px;
       margin-bottom: 32px;
     }
-
     .form-group {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -148,13 +141,10 @@
       box-sizing: border-box;
       text-align: center;
     }
-
     .form-group:last-child {
       border-right: solid 1px #A6A8AB;
     }
-
     /* Primary button group */
-
     .label-primary {
       padding: 8px 16px;
       cursor: pointer;
@@ -165,33 +155,27 @@
       border-left: solid 1px #A6A8AB;
       border-bottom: solid 1px #A6A8AB;
     }
-
     .label-primary:hover {
       background: #003C57;
       color: #fff;
       border-color: #003C57;
     }
-
     .radio-primary {
       display: none;
     }
-
     .radio-primary:checked+.label-primary {
       background: #206095;
       color: #fff;
       border-color: #206095;
       cursor: default;
     }
-
     [role="radio"]:focus {
       outline: 3px solid #FF9933 !important;
       outline-offset: -1px;
       background-color: #003C57;
       z-index: 1;
     }
-
     /* Secondary button group */
-
     .label-secondary {
       padding: 8px 16px;
       cursor: pointer;
@@ -202,26 +186,21 @@
       border-left: solid 1px #A6A8AB;
       border-bottom: solid 1px #A6A8AB;
     }
-
     .label-secondary:hover {
       background: #45565E;
       color: #fff;
       border-color: #45565E;
     }
-
     .radio-secondary:checked+.label-secondary {
       background: #5F7682;
       color: #fff;
       border-color: #5F7682;
       cursor: default;
     }
-
     .radio-secondary {
       display: none;
     }
-
     /* Neutral button group */
-
     .label-neutral {
       padding: 8px 16px;
       cursor: pointer;
@@ -232,24 +211,19 @@
       border-left: solid 1px #A6A8AB;
       border-bottom: solid 1px #A6A8AB;
     }
-
     .label-neutral:hover {
       background: #D0D2D3;
       color: #323132;
     }
-
     .radio-neutral:checked+.label-neutral {
       background: #E5E6E7;
       color: #323132;
       cursor: default;
     }
-
     .radio-neutral {
       display: none;
     }
-
     /* Teal button group */
-
     .label-teal {
       padding: 8px 16px;
       cursor: pointer;
@@ -260,26 +234,21 @@
       border-left: solid 1px #A6A8AB;
       border-bottom: solid 1px #A6A8AB;
     }
-
     .label-teal:hover {
       background: #026A6E;
       color: #FFF;
       border-color: #026A6E;
     }
-
     .radio-teal:checked+.label-teal {
       background: #008080;
       color: #FFF;
       border-color: #008080;
       cursor: default;
     }
-
     .radio-teal {
       display: none;
     }
-
     /* Full width */
-
     .btn-form-fullwidth {
       display: -webkit-inline-box;
       display: -ms-inline-flexbox;
@@ -291,7 +260,6 @@
       margin-bottom: 32px;
       width: 100%;
     }
-
     .form-group-fullwidth {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -303,9 +271,6 @@
       width: 100%;
       border-right: solid 1px #A6A8AB;
     }
-
-
-
     .label-primary-fullwidth {
       padding: 8px 16px;
       cursor: pointer;
@@ -317,11 +282,9 @@
       width: 100%;
       font-weight: 600;
     }
-
     .form-group-fullwidth:last-child {
       border-right: solid 1px #A6A8AB;
     }
-
     .label-primary-fullwidth:hover {
       background: #003C57;
       color: #fff;
@@ -329,7 +292,6 @@
       width: 100%;
       font-weight: 600;
     }
-
     .radio-primary-fullwidth:checked+.label-primary-fullwidth {
       background: #206095;
       color: #fff;
@@ -337,18 +299,21 @@
       cursor: default;
       width: 100%;
     }
-
     .radio-primary-fullwidth {
       display: none;
     }
-
     /* Bootstrap Grid */
-
+    .row:before,
+    .row:after {
+     display: table;
+     content: " ";
+    }.row:after {
+     clear: both;
+    }
     .row {
       margin-right: 0px;
       margin-left: 0px;
     }
-
     .col-xs-1,
     .col-sm-1,
     .col-md-1,
@@ -400,7 +365,6 @@
       position: relative;
       min-height: 1px;
     }
-
     .col-xs-1,
     .col-xs-2,
     .col-xs-3,
@@ -415,211 +379,159 @@
     .col-xs-12 {
       float: left;
     }
-
     .col-xs-12 {
       width: 100%;
     }
-
     .col-xs-11 {
       width: 91.66666667%;
     }
-
     .col-xs-10 {
       width: 83.33333333%;
     }
-
     .col-xs-9 {
       width: 75%;
     }
-
     .col-xs-8 {
       width: 66.66666667%;
     }
-
     .col-xs-7 {
       width: 58.33333333%;
     }
-
     .col-xs-6 {
       width: 50%;
     }
-
     .col-xs-5 {
       width: 41.66666667%;
     }
-
     .col-xs-4 {
       width: 33.33333333%;
     }
-
     .col-xs-3 {
       width: 25%;
     }
-
     .col-xs-2 {
       width: 16.66666667%;
     }
-
     .col-xs-1 {
       width: 8.33333333%;
     }
-
     .col-xs-pull-12 {
       right: 100%;
     }
-
     .col-xs-pull-11 {
       right: 91.66666667%;
     }
-
     .col-xs-pull-10 {
       right: 83.33333333%;
     }
-
     .col-xs-pull-9 {
       right: 75%;
     }
-
     .col-xs-pull-8 {
       right: 66.66666667%;
     }
-
     .col-xs-pull-7 {
       right: 58.33333333%;
     }
-
     .col-xs-pull-6 {
       right: 50%;
     }
-
     .col-xs-pull-5 {
       right: 41.66666667%;
     }
-
     .col-xs-pull-4 {
       right: 33.33333333%;
     }
-
     .col-xs-pull-3 {
       right: 25%;
     }
-
     .col-xs-pull-2 {
       right: 16.66666667%;
     }
-
     .col-xs-pull-1 {
       right: 8.33333333%;
     }
-
     .col-xs-pull-0 {
       right: auto;
     }
-
     .col-xs-push-12 {
       left: 100%;
     }
-
     .col-xs-push-11 {
       left: 91.66666667%;
     }
-
     .col-xs-push-10 {
       left: 83.33333333%;
     }
-
     .col-xs-push-9 {
       left: 75%;
     }
-
     .col-xs-push-8 {
       left: 66.66666667%;
     }
-
     .col-xs-push-7 {
       left: 58.33333333%;
     }
-
     .col-xs-push-6 {
       left: 50%;
     }
-
     .col-xs-push-5 {
       left: 41.66666667%;
     }
-
     .col-xs-push-4 {
       left: 33.33333333%;
     }
-
     .col-xs-push-3 {
       left: 25%;
     }
-
     .col-xs-push-2 {
       left: 16.66666667%;
     }
-
     .col-xs-push-1 {
       left: 8.33333333%;
     }
-
     .col-xs-push-0 {
       left: auto;
     }
-
     .col-xs-offset-12 {
       margin-left: 100%;
     }
-
     .col-xs-offset-11 {
       margin-left: 91.66666667%;
     }
-
     .col-xs-offset-10 {
       margin-left: 83.33333333%;
     }
-
     .col-xs-offset-9 {
       margin-left: 75%;
     }
-
     .col-xs-offset-8 {
       margin-left: 66.66666667%;
     }
-
     .col-xs-offset-7 {
       margin-left: 58.33333333%;
     }
-
     .col-xs-offset-6 {
       margin-left: 50%;
     }
-
     .col-xs-offset-5 {
       margin-left: 41.66666667%;
     }
-
     .col-xs-offset-4 {
       margin-left: 33.33333333%;
     }
-
     .col-xs-offset-3 {
       margin-left: 25%;
     }
-
     .col-xs-offset-2 {
       margin-left: 16.66666667%;
     }
-
     .col-xs-offset-1 {
       margin-left: 8.33333333%;
     }
-
     .col-xs-offset-0 {
       margin-left: 0;
     }
-
     @media (min-width: 600px) {
       .col-sm-1,
       .col-sm-2,
@@ -789,9 +701,7 @@
         margin-left: 0;
       }
     }
-
     /* Button styles */
-
     .btn {
       font-family: "Open Sans", Helvetica, Arial, sans-serif;
       font-weight: 400;
@@ -807,77 +717,61 @@
       text-decoration: none;
       line-height: 24px;
     }
-
     .btn--bold {
       font-weight: 600;
     }
-
     .btn--large {
       font-size: 16px;
     }
-
     .btn--primary-alternative {
       background-color: #206095;
       color: #fff;
       padding: 15px 19px 11px 19px;
     }
-
     .btn--primary-alternative:hover,
     .btn--primary-alternative:focus {
       background-color: #003C57;
     }
-
     .btn--primary-disabled:hover,
     .btn--primary-disabled:focus {
       background-color: #003C57;
       cursor: not-allowed;
     }
-
     .btn--primary-disabled {
       opacity: 0.7;
     }
-
-
     .btn--neutral:hover,
     .btn--neutral:focus {
       background-color: #E5E6E7;
     }
-
     .btn--neutral {
       background-color: #F9F9F9;
       border: 1px solid #A6A8AB;
       padding: 14px 16px 10px 16px;
     }
-
     .btn--neutral-disabled:hover,
     .btn--primary-disabled:focus {
       cursor: not-allowed;
     }
-
     .btn--neutral-disabled {
       background-color: #eee;
       opacity: 0.2;
     }
-
     button {
       cursor: pointer;
     }
-
     #controls,
     #timePeriod {
       margin-left: 20px;
     }
-
     #controls {
       padding-top: 35px;
     }
-
     #source {
       font-size: 14px;
       font-weight: 700;
       color: #414042;
     }
-
     #timePeriod {
       position: absolute;
       top: 0px;
@@ -887,36 +781,29 @@
       font-weight: 700;
       color: #414042;
     }
-
     .select2-results__option,
     .select2-selection__rendered {
       font-weight: 600;
     }
-
     #notesdiv {
       max-width: 480px;
     }
-
     p {
       font-size: 14px;
     }
-
     #notesdiv {
       padding-top: 8px;
     }
-
     h6 {
       font-size: 14px;
       font-weight: 700;
       margin: 16px 0 0 0;
     }
-
     ul,
     ol {
       margin: 0px 0;
       padding-left: 16px;
     }
-
     li {
       font-size: 14px;
       font-weight: 400;
@@ -924,12 +811,10 @@
       margin: 0px 0;
       padding: 6px 0 10px 16px;
     }
-
     .btn--primary {
       background-color: #0F8243;
       color: #fff;
     }
-
     .btn {
       font-family: "Open Sans", Helvetica, Arial, sans-serif;
       font-weight: 400;
@@ -945,58 +830,46 @@
       text-decoration: none;
       line-height: 24px;
     }
-
     .btn--bold {
       font-weight: 600;
     }
-
     .btn--large {
       font-size: 16px;
     }
-
     .btn--primary-alternative {
       background-color: #206095;
       color: #fff;
       padding: 15px 19px 11px 19px;
     }
-
     .btn--primary-alternative:hover,
     .btn--primary-alternative:focus {
       background-color: #003C57;
     }
-
     .btn--primary-disabled:hover,
     .btn--primary-disabled:focus {
       background-color: #003C57;
       cursor: not-allowed;
     }
-
     .btn--primary-disabled {
       opacity: 0.7;
     }
-
-
     .btn--neutral:hover,
     .btn--neutral:focus {
       background-color: #E5E6E7;
     }
-
     .btn--neutral {
       background-color: #F9F9F9;
       border: 1px solid #A6A8AB;
       padding: 14px 16px 10px 16px;
     }
-
     .btn--neutral-disabled:hover,
     .btn--primary-disabled:focus {
       cursor: not-allowed;
     }
-
     .btn--neutral-disabled {
       background-color: #eee;
       opacity: 0.2;
     }
-
     button {
       cursor: pointer;
     }
